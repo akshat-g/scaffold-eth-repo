@@ -10,7 +10,7 @@ function NavbarTest({ address, chainId, logoutOfWeb3Modal }) {
     <div>
       <Flex alignItems="center" justifyContent="space-between" px="1em">
         <Heading py="0.5em" px="0.5em" align="left" fontFamily="Philosopher">
-          MagicPolly
+          Defi Anon
         </Heading>
 
         <Flex px="1em">

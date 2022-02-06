@@ -14,7 +14,7 @@ function HeroTest({ web3Modal, loadWeb3Modal, logoutOfWeb3Modal }) {
       <Box bg="#77787A" p="0.6em" m="0" h="100vh" overflow="hidden">
         <Box bg="#F5F5F5" h="100%" rounded="10px">
           <Heading p="1em" align="left" fontFamily="Philosopher">
-            MagicPolly
+            Defi Anon
           </Heading>
 
           <Flex h="70%" alignItems="center" justifyContent="space-between">
