@@ -1,7 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import { ThemeSwitcherProvider } from "react-css-theme-switcher";
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
@@ -24,7 +25,9 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <ThemeSwitcherProvider themeMap={themes} defaultTheme={prevTheme || "light"}>
       <BrowserRouter>
-        <App subgraphUri={subgraphUri} />
+        <ChakraProvider>
+          <App subgraphUri={subgraphUri} />
+        </ChakraProvider>
       </BrowserRouter>
     </ThemeSwitcherProvider>
   </ApolloProvider>,

@@ -1,7 +1,8 @@
 import Fortmatic from "fortmatic";
 import WalletLink from "walletlink";
-import Web3Modal from "web3modal";
+import Web3Modal from "@0xsequence/web3modal";
 import Portis from "@portis/web3";
+import { sequence } from "0xsequence";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Authereum from "authereum";
 import { INFURA_ID, ALCHEMY_KEY } from "../constants";
@@ -35,7 +36,7 @@ const web3ModalSetup = () =>
             137: "https://polygon-rpc.com",
             31337: "http://localhost:8545",
             42161: "https://arb1.arbitrum.io/rpc",
-            80001: "https://rpc-mumbai.maticvigil.com"
+            80001: "https://rpc-mumbai.maticvigil.com",
           },
         },
       },
@@ -50,10 +51,17 @@ const web3ModalSetup = () =>
           id: "6255fb2b-58c8-433b-a2c9-62098c05ddc9",
         },
       },
-      fortmatic: {
-        package: Fortmatic, // required
+      // fortmatic: {
+      //   package: Fortmatic, // required
+      //   options: {
+      //     key: "pk_live_5A7C91B2FC585A17", // required
+      //   },
+      // },
+      sequence: {
+        package: sequence,
         options: {
-          key: "pk_live_5A7C91B2FC585A17", // required
+          appName: "Web3Modal Demo Dapp",
+          defaultNetwork: "polygon",
         },
       },
       // torus: {
