@@ -49,9 +49,13 @@ function shuffle(array) {
 COLORS = shuffle(COLORS);
 
 
-function getColumnSnaps() {
-   
-
+function getColumnSpans(amountUSDs) {
+  let highest = [2,3]
+  let second_highest =  Math.log(amountUSDs[0]/amountUSDs[1]) > 1? [1,3] : [2,2];
+  let third_highest = Math.log(amountUSDs[1]/amountUSDs[2]) > 1 ? [1,2]: [1,3];
+  let fourth_highest =Math.log(amountUSDs[2]/amountUSDs[3]) > 1?  [1,2] : third_highest ;
+  return [highest, second_highest, third_highest, fourth_highest]
+  
 }
 
 function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
@@ -62,6 +66,8 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
       setLoading(false);
     }, 2000);
   });
+  let colSpans = getColumnSpans([15000, 4000, 3000, 2300])
+  console.log("colSpans is", colSpans);
   return (
     <div>
       <Box bg="#77787A" p="0.6em" m="0" h="auto">
@@ -79,8 +85,8 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
             >
               
               <GridItem
-                rowSpan={1}
-                colSpan={3}
+                rowSpan={colSpans[0][0]}
+                colSpan={colSpans[0][1]}
                 minW="100%"
                 h="100%"
                 bg={COLORS[0]}
@@ -109,7 +115,7 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
                 <Heading fontFamily="Raleway" fontWeight={500}>
                   Trading Whale
                 </Heading>
-                <Image boxSize="100px" src={whale} />
+                <Image boxSize="100px" src={shrimp} />
 
                 <Flex mt="10px" justifyContent="space-around">
                   <Flex justifyContent="space-between">
@@ -143,8 +149,8 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
               </GridItem>
 
               <GridItem
-                colSpan={3}
-                rowSpan={1}
+                  rowSpan={colSpans[1][0]}
+                  colSpan={colSpans[1][1]}
                 w="100%"
                 bg={COLORS[2]}
                 align="center"
@@ -156,8 +162,8 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
               </GridItem>
 
               <GridItem
-                colSpan={3}
-                // rowSpan={1}
+                rowSpan={colSpans[2][0]}
+                colSpan={colSpans[2][1]}
                 w="100%"
                 bg={COLORS[3]}
                 align="center"
@@ -170,8 +176,8 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
               </GridItem>
 
               <GridItem
-                colSpan={3}
-                // rowSpan={1}
+                rowSpan={colSpans[3][0]}
+                colSpan={colSpans[3][1]}
                 w="100%"
                 bg={COLORS[4]}
                 align="center"
@@ -185,7 +191,7 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
 
               <GridItem
                 h="min-content"
-                colSpan={6}
+                colSpan={(6-colSpans[3][1])}
                 align="center"
                 w="100%"
                 bg="rgb(212,212,212)"
