@@ -58,3 +58,15 @@ img {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(245, 27, 107, 0));
   --tw-gradient-to: #e2ab45; */
 }
+.blur {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.main-box {
+  border: 3px solid #000;
+  border-style: double;
+}
