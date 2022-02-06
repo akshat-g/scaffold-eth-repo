@@ -30,28 +30,28 @@ export default function LendingBox(props) {
           <Text fontWeight={500} fontSize="16px">
             Total Amount:
           </Text>
-          <Text fontSize="16px">$ 33</Text>
+          <Text fontSize="16px">$5280</Text>
         </Flex>
         <Flex justifyContent="space-between">
           {" "}
           <Text fontWeight={500} fontSize="16px">
             Health Factor:
           </Text>
-          <Text fontSize="16px"> 3</Text>
+          <Text fontSize="16px">1.872</Text>
         </Flex>
         <Flex justifyContent="space-between">
           {" "}
           <Text fontWeight={500} fontSize="16px">
             Total Deposit:
           </Text>
-          <Text fontSize="16px"> 3</Text>
+          <Text fontSize="16px">$3120</Text>
         </Flex>
         <Flex justifyContent="space-between">
           {" "}
           <Text fontWeight={500} fontSize="16px">
             Total Borrow:
           </Text>
-          <Text fontSize="16px">33</Text>
+          <Text fontSize="16px">$1299</Text>
         </Flex>
       </Stack>
     </div>

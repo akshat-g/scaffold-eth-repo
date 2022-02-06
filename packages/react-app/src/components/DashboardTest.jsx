@@ -24,6 +24,8 @@ import LendingBox from "./LendingBox";
 import SwapBox from "./SwapBox";
 import TokenBox from "./TokenBox";
 
+import { profile } from "../result.json";
+
 let COLORS = [
   "rgba(23, 63, 95, 0.3)",
   "rgba(32, 99, 155, 0.3)",
@@ -52,7 +54,7 @@ function shuffle(array) {
 COLORS = shuffle(COLORS);
 
 function getColumnSpans(amountUSDs) {
-  let highest = [2, 3];
+  let highest = [1, 3];
   let second_highest = Math.log(amountUSDs[0] / amountUSDs[1]) > 1 ? [1, 3] : [2, 2];
   let third_highest = Math.log(amountUSDs[1] / amountUSDs[2]) > 1 ? [1, 2] : [1, 3];
   let fourth_highest = Math.log(amountUSDs[2] / amountUSDs[3]) > 1 ? [1, 2] : third_highest;
@@ -69,6 +71,7 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
   });
   let colSpans = getColumnSpans([15000, 4000, 3000, 2300]);
   console.log("colSpans is", colSpans);
+  const d = "crab";
   return (
     <div>
       <Box bg="#77787A" p="0.6em" m="0" h="auto">
@@ -110,12 +113,12 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
               >
                 <Box align="center">
                   <Text fontFamily="Montserrat" align="left" color="blackAlpha.500">
-                    <Tag>Lakshay.ETH</Tag>
+                    <Tag>{address}</Tag>
                   </Text>
-                  <Heading mt="1em" fontFamily="Raleway" fontWeight={700}>
-                    Trading Whale
+                  <Heading align="center" mt="1em" fontFamily="Raleway" fontWeight={700}>
+                    Trading Crab
                   </Heading>
-                  <Image boxSize="180px" src={shrimp} />
+                  <Image boxSize="180px" src={crab} />
 
                   <Flex mt="10px" justifyContent="space-around">
                     <Flex justifyContent="space-between">
@@ -128,19 +131,19 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
                       <Text fontWeight={500} fontSize="16px" mr="2em">
                         Total Volume:
                       </Text>
-                      <Text fontSize="16px">$12k</Text>
+                      {/* <Text fontSize="16px">$12k</Text> */} $10k
                     </Flex>
                   </Flex>
-                  <Flex mx="2.5em" mb="-1em" alignItems="center" justifyContent="space-between">
-                    <Box>
+                  <Flex mx="2.5em" mb="-1em" alignItems="center" justifyContent="center">
+                    <Stack spacing={-4}>
+                      <Text color="blackAlpha.500">Your Reputation Score:</Text>
                       <Heading fontFamily="Montserrat" fontWeight={700} color="green" fontSize="50px">
-                        348
+                        {/* {profile.reputation_score} */}
+                        345
                       </Heading>
-                    </Box>
+                    </Stack>
 
-                    <Heading fontWeight={600} fontSize="1.4em" fontFamily="Raleway">
-                      $10k
-                    </Heading>
+                    <Heading fontWeight={600} fontSize="1.4em" fontFamily="Raleway"></Heading>
                   </Flex>
                 </Box>
               </GridItem>
@@ -171,7 +174,7 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
                 h="min-content"
                 className="blur"
               >
-                <SwapBox></SwapBox>
+                <SwapBox name={"Uniswap"}></SwapBox>
               </GridItem>
 
               <GridItem
@@ -186,7 +189,7 @@ function DashboardTest({ address, chainId, logoutOfWeb3Modal }) {
                 h="min-content"
                 className="blur"
               >
-                <SwapBox></SwapBox>
+                <SwapBox name={"QuickSwap"}></SwapBox>
               </GridItem>
 
               <GridItem
